@@ -7,11 +7,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
-import java.util.Scanner;
 import java.util.stream.Stream;
+import auxiliar.Utils;
 
 public class SaveDirTree {
     
@@ -23,7 +22,7 @@ public class SaveDirTree {
     
     static {
         try {
-            FILE = new File(selectPath().toString() , "dirTree.txt");
+            FILE = new File(Utils.selectPath("output").toString() , "dirTree.txt");
             FW = new FileWriter(FILE);
             BF = new BufferedWriter(FW);
         } catch (IOException e) {
@@ -31,45 +30,11 @@ public class SaveDirTree {
         }
     }
     
-    
-    
-    private static Path selectPath() {
-        if (System.getProperty("java.class.path").equals(".")) {
-            Path p=Paths.get("../output/");
-            if (Files.notExists (p)) {
-                File directory=new File(p.toString());
-                directory.mkdir();
-            }
-            return p;
-        } else {
-            Path p=Paths.get(System.getProperty("java.class.path")).getParent().getParent().resolve(Paths.get("src/main/java/output"));
-           
-            if (Files.notExists (p)) {
-                File directory=new File(p.toString());
-                directory.mkdir();
-            }
-            return p;
-        }
-    }
-    
-    private static Path inputPath(String s) throws InvalidPathException {
-        Path p = null;
-        Scanner sc = new Scanner(System.in);
-        if (s.isEmpty()) {
-            System.out.println("Input the path:");
-            s = sc.nextLine();
-        }
-        p = Paths.get(s);
-        
-        
-        return p;
-    }
-    
     public static void init(String[] args) {
         if (args.length < 1) {
             dirTree("");
         } else {
-            dirTree(argsToString(args));
+            dirTree(Utils.argsToString(args));
         }
         try {
             if (exists) {
@@ -84,21 +49,9 @@ public class SaveDirTree {
         }
     }
     
-    private static String argsToString(String[] args) {
-        String result = "";
-        for (int i = 0; i < args.length; i++) {
-            if (i < args.length - 1) {
-                result += args[i] + " ";
-            } else {
-                result += args[i];
-            }
-        }
-        return result;
-    }
-    
     public static void dirTree(String s) {
         try {
-            Path path = inputPath(s);
+            Path path = Utils.inputPath(s);
             if (Files.exists(path)) {
                 generateTreeDir(path);
             } else {

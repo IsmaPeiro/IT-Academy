@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Properties;
 import java.util.stream.Stream;
+import auxiliar.Utils;
 
 public class SaveDirTree {
     static int count = 0;
@@ -21,7 +22,7 @@ public class SaveDirTree {
     
     static {
         try {
-            confFile = new File(selectPath("properties") + "/conf.properties");
+            confFile = new File(Utils.selectPath("properties") + "/conf.properties");
             properties.load(new FileInputStream(confFile));
         } catch (IOException | ExceptionInInitializerError e) {
             throw new RuntimeException(e);
@@ -30,30 +31,13 @@ public class SaveDirTree {
     
     static {
         try {
-            
-            FILE = new File(selectPath(properties.get("OUTPUTPATH").toString()) + properties.get("TXTFILE"));
+            Path p=Utils.selectPath(properties.get("OUTPUTPATH").toString());
+            String fileName= properties.get("TXTFILE").toString();
+            FILE = new File(p.toString(),fileName);
             FW = new FileWriter(FILE);
             BF = new BufferedWriter(FW);
         } catch (IOException e) {
             throw new RuntimeException(e);
-        }
-    }
-    
-    private static String selectPath(String s) {
-        if (System.getProperty("java.class.path").equals(".")) {
-            Path p = Paths.get("../" + s);
-            if (Files.notExists(p)) {
-                File directory = new File(p.toString());
-                directory.mkdir();
-            }
-            return p + "/";
-        } else {
-            Path p = Paths.get("ReskillingJava/Sprint1/Entrega5/src/main/java/" + s);
-            if (Files.notExists(p)) {
-                File directory = new File(p.toString());
-                directory.mkdir();
-            }
-            return p + "/";
         }
     }
     

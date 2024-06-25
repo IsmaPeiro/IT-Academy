@@ -24,7 +24,7 @@ public class Select {
                 case "-ser", "-dser" -> {
                     String[] copyArgs = new String[args.length - 1];
                     System.arraycopy(args, 1, copyArgs, 0, args.length - 1);
-                    Serializatea.init(args[0], copyArgs);
+                    Serializate.init(args[0], copyArgs);
                 }
                 default -> System.out.println("Incorrect parameters.");
             }
@@ -34,7 +34,6 @@ public class Select {
     }
     
     private static void menu(String[] args) {
-        boolean exit = false;
         int option = -1;
         Scanner sc = new Scanner(System.in);
         do {
@@ -49,8 +48,8 @@ public class Select {
             case 1 -> n1Ejercicio2.ShowDirTree.init(args);
             case 2 -> n1Ejercicio3.SaveDirTree.init(args);
             case 3 -> n1Ejercicio4.ReadTxt.init(args);
-            case 4 -> Serializatea.init("-ser", args);
-            case 5 -> Serializatea.init("-dser", args);
+            case 4 -> Serializate.init("-ser", args);
+            case 5 -> Serializate.init("-dser", args);
             case 0 -> System.out.println("Thank you for use the application.");
         }
     }
