@@ -8,7 +8,6 @@ import java.util.stream.Stream;
 
 public class IOManagement {
     private final Path path=Paths.get(System.getProperty("java.class.path")).getParent().getParent().resolve(Paths.get("src/main/java/n3Exercise1/resources"));
-    //private final String path = System.getProperty("java.class.path") + "\\n3Ejercicio1\\resources\\";
     private final File personsFile = checkPersonsExists();
     
     public IOManagement() throws IOException {

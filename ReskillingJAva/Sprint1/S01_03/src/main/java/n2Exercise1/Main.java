@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) {
         HashSet<Restaurant> restaurants = new HashSet<>();
         
-        
         Restaurant r1 = new Restaurant("Lolo", 10);
         Restaurant r2 = new Restaurant("Paco", 7);
         Restaurant r3 = new Restaurant("Casa Lucio", 8);
@@ -24,9 +23,9 @@ public class Main {
         restaurants.add(r6);
         restaurants.add(r7);
         
-        Comparator<Restaurant> comparator = (rest1, rest2) -> rest2.getPunctuation() - rest1.getPunctuation();
+        //Comparator<Restaurant> comparator = (rest1, rest2) -> rest2.getPunctuation() - rest1.getPunctuation();
         
-        restaurants.stream().sorted(comparator).forEach(System.out::println);
+        restaurants.stream().sorted(Comparator.comparing((Restaurant::getPunctuation)).reversed()).forEach(System.out::println);
         
         
     }

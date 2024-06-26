@@ -4,7 +4,6 @@ import java.util.List;
 
 public class LambdaExercise {
     
-    
     public static void showNamesStudents (List<Student> studentList) {
         studentList.forEach(s-> System.out.println("name: "+s.getName()+", age: "+s.getAge()));
     }
