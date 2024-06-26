@@ -19,7 +19,7 @@ public class Main {
     private static ArrayList<Restaurant> getRestaurants() {
         ArrayList<Restaurant> restaurantsList = new ArrayList<>();
         
-               Restaurant r1 = new Restaurant("Lolo", 10);
+        Restaurant r1 = new Restaurant("Lolo", 10);
         Restaurant r2 = new Restaurant("Paco", 7);
         Restaurant r3 = new Restaurant("Casa Lucio", 8);
         Restaurant r4 = new Restaurant("Gorrino", 6);
