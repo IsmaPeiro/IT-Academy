@@ -11,7 +11,7 @@ public class Game {
     
     private String userName;
     private int score = 0;
-    IOManagement files = new IOManagement();
+    private IOManagement files = new IOManagement();
     private final LinkedHashMap<String, String> countriesMap = new LinkedHashMap<>();
     private final List<String> countries = new ArrayList<>();
     

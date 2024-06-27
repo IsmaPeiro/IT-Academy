@@ -34,7 +34,7 @@ class ListOfObjectsTest {
     
     @DisplayName("Only Once Object")
     @Test
-    public void onluOnce () {
+    public void onlyOnce() {
         assertThat(list.getList()).containsOnlyOnce(123456);
     }
     

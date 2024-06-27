@@ -5,13 +5,13 @@ import java.util.Optional;
 
 public class Editor {
     private String name;
-    private final String DNI;
+    private final String dni;
     private static int salary = 1500;
     private ArrayList<NewsReport> newsReports;
 
     Editor(String name, String dni) {
         this.name = name;
-        this.DNI = dni;
+        this.dni = dni;
         this.newsReports = new ArrayList<>();
     }
 
@@ -19,8 +19,8 @@ public class Editor {
         return name;
     }
 
-    public String getDNI() {
-        return DNI;
+    public String getDni() {
+        return dni;
     }
 
     public static int getSalary() {
@@ -45,7 +45,7 @@ public class Editor {
 
     @Override
     public String toString() {
-        return "Editor [name=" + name + ", DNI=" + DNI + ", news=" + newsReports + " salary=" + salary + "]";
+        return "Editor [name=" + name + ", DNI=" + dni + ", news=" + newsReports + " salary=" + salary + "]";
     }
 
     public void inputNew(NewsReport newsReport) {

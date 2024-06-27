@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Input {
-    private static final Scanner sc = new Scanner(System.in);
+    private static final Scanner SC = new Scanner(System.in);
 
     public static byte readByte(String message) {
         boolean exit = false;
@@ -13,12 +13,12 @@ public class Input {
         do {
             System.out.println(message);
             try {
-                result = sc.nextByte();
+                result = SC.nextByte();
                 exit = true;
             } catch (InputMismatchException e) {
                 System.err.println("Format error.");
             } finally {
-                sc.nextLine();
+                SC.nextLine();
             }
         } while (!exit);
         return result;
@@ -31,12 +31,12 @@ public class Input {
         do {
             System.out.println(message);
             try {
-                result = sc.nextInt();
+                result = SC.nextInt();
                 exit = true;
             } catch (InputMismatchException e) {
                 System.err.println("Format Error.");
             } finally {
-                sc.nextLine();
+                SC.nextLine();
             }
         } while (!exit);
         return result;
@@ -49,12 +49,12 @@ public class Input {
         do {
             System.out.println(message);
             try {
-                result = sc.nextFloat();
+                result = SC.nextFloat();
                 exit = true;
             } catch (InputMismatchException e) {
                 System.err.println("Format Error");
             } finally {
-                sc.nextLine();
+                SC.nextLine();
             }
         } while (!exit);
         return result;
@@ -68,12 +68,12 @@ public class Input {
         do {
             System.out.println(message);
             try {
-                result = sc.nextDouble();
+                result = SC.nextDouble();
                 exit = true;
             } catch (InputMismatchException e) {
                 System.err.println("Format Error");
             } finally {
-                sc.nextLine();
+                SC.nextLine();
             }
         } while (!exit);
         return result;
@@ -86,7 +86,7 @@ public class Input {
         do {
             System.out.println(message);
             try {
-                result = sc.next();
+                result = SC.next();
                 if (result.length() != 1) {
                     throw new Exception();
                 } else {
@@ -95,7 +95,7 @@ public class Input {
             } catch (Exception e) {
                 System.err.println("Format Error");
             } finally {
-                sc.nextLine();
+                SC.nextLine();
             }
         } while (!exit);
         return result.charAt(0);
@@ -108,7 +108,7 @@ public class Input {
         do {
             System.out.println(message);
             try {
-                result = sc.nextLine();
+                result = SC.nextLine();
                 exit = true; //que no lea nums
             } catch (Exception e) {
                 System.err.println("Format Error");
@@ -126,7 +126,7 @@ public class Input {
         do {
             System.out.println(message);
             try {
-                yesNo = sc.next();
+                yesNo = SC.next();
                 if (yesNo.matches("[Yy]")) {
                     result = true;
                     exit = true;

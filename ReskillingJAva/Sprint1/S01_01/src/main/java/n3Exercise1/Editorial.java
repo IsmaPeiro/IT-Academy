@@ -315,7 +315,7 @@ public class Editorial {
     
     public Editor seekEditor(String dni, ArrayList<Editor> editors) {
         Editor editor = null;
-        Optional<Editor> expresion = editors.stream().filter(o -> o.getDNI().equalsIgnoreCase(dni)).findFirst();
+        Optional<Editor> expresion = editors.stream().filter(o -> o.getDni().equalsIgnoreCase(dni)).findFirst();
         
         if (expresion.isPresent()) editor = expresion.get();
         return editor;
@@ -361,6 +361,6 @@ public class Editorial {
     private void showEditors() {
         System.out.println("List of Editors:");
         editors.forEach(editors ->
-                System.out.println("Name: " + editors.getName() + " DNI: " + editors.getDNI()));
+                System.out.println("Name: " + editors.getName() + " DNI: " + editors.getDni()));
     }
 }
