@@ -1,13 +1,8 @@
 package n1Exercise2;
 
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import java.util.Arrays;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculateDniTest {
@@ -24,7 +19,7 @@ class CalculateDniTest {
             "66666666,Q",
             "77777777,B",
             "88888888,Y",
-            "99999999,R"
+            "99999999,S" //This is incorrect
     })
     public void testLetterDni(int num, char chr) {
         assertEquals(CalculateDni.getLetterDni(num),chr);

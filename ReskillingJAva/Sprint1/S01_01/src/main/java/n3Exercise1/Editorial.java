@@ -1,5 +1,7 @@
 package n3Exercise1;
 
+import n3Exercise1.news.*;
+
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Scanner;

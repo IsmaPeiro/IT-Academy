@@ -1,4 +1,6 @@
 package n3Exercise1;
+import n3Exercise1.news.NewsReport;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package n3Exercise1;
+package n3Exercise1.news;
 
 public abstract class NewsReport {
     protected String titular;

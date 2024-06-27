@@ -1,4 +1,4 @@
-package n3Exercise1;
+package n3Exercise1.news;
 
 public class Motorcycling extends NewsReport {
 	private String team;
