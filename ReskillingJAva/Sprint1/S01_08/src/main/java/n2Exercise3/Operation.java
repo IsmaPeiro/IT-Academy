@@ -1,4 +1,4 @@
-package n2Ejercicio3;
+package n2Exercise3;
 
 @FunctionalInterface
 public interface Operation {

@@ -1,4 +1,4 @@
-package n1ejercicio6;
+package n1Exercise6;
 
 import java.util.Comparator;
 import java.util.HashMap;

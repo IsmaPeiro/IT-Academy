@@ -14,6 +14,7 @@ public class Main {
         System.out.println(list);
         
         System.out.println("Sorted first contains e");
+        
         list.sort(Comparator.comparing((String s)->
                 !s.toUpperCase().contains("E")).thenComparing((String s)->s.toUpperCase()));
         System.out.println(list);

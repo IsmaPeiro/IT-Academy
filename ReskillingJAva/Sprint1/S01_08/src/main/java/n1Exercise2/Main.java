@@ -12,8 +12,8 @@ public class Main {
     }
     
     public static List<String> containsO (List<String> list) {
-        List<String> result=new ArrayList<>();
-        list.forEach(word->{if (word.contains("o")&&word.length()>5) result.add(word);});
-        return result;
+        
+        return list.stream().filter(word->word.contains("o")&&word.length()>5).toList();
+        
     }
 }
