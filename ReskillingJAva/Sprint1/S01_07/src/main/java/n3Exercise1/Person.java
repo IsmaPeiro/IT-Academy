@@ -1,6 +1,7 @@
 package n3Exercise1;
 
-@JsonPath(path = "ReskillingJava/Sprint1/S01_07/src/main/java/output/")
+//@JsonPath(path = "ReskillingJava/Sprint1/S01_07/src/main/java/output/")
+@JsonPath(path = "output")
 public class Person {
     
     private String name;
