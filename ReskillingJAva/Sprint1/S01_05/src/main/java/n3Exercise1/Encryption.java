@@ -66,15 +66,17 @@ public class Encryption {
         SecretKeyFactory secretKeyFactory;
         KeySpec keySpec;
         SecretKey secretKeyTemp;
+        SecretKeySpec secretKeySpec;
         try {
             secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
             keySpec = new PBEKeySpec(key.toCharArray(), salt.getBytes(), 65536, 256);
             secretKeyTemp = secretKeyFactory.generateSecret(keySpec);
-            return new SecretKeySpec(secretKeyTemp.getEncoded(), "AES");
+            secretKeySpec=new SecretKeySpec(secretKeyTemp.getEncoded(), "AES");
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             System.out.println(e.getMessage());
-            return null;
+            secretKeySpec=null;
         }
+        return secretKeySpec;
     }
     
     private static void encrypt(File file) {

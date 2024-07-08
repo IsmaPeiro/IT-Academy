@@ -16,17 +16,17 @@ public class SaveDirTree {
     
     static int count = 0;
     static boolean exists=true;
-    static final File FILE;
-    static final BufferedWriter BF;
-    static final FileWriter FW;
+    static File file;
+    static BufferedWriter bf;
+    static FileWriter fw;
     
     static {
         try {
-            FILE = new File(Utils.selectPath("output").toString() , "dirTree.txt");
-            FW = new FileWriter(FILE);
-            BF = new BufferedWriter(FW);
+            file = new File(Utils.selectPath("output").toString() , "dirTree.txt");
+            fw = new FileWriter(file);
+            bf = new BufferedWriter(fw);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
     }
     
@@ -38,8 +38,8 @@ public class SaveDirTree {
         }
         try {
             if (exists) {
-                BF.flush();
-                BF.close();
+                bf.flush();
+                bf.close();
                 System.out.println("Log saved.");
             } else {
                 System.out.println("Log not saved.");
@@ -81,9 +81,9 @@ public class SaveDirTree {
         String name = file.getParent().getFileName() + "\\" + file.getFileName();
         String date = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss").format(file.toFile().lastModified());
         if (!Files.isDirectory(file)) {
-            BF.write("\t".repeat(count) + "[F]" + name + " " + date + "\n");
+            bf.write("\t".repeat(count) + "[F]" + name + " " + date + "\n");
         } else {
-            BF.write("\t".repeat(count) + "[D]" + name + " " + date + "\n");
+            bf.write("\t".repeat(count) + "[D]" + name + " " + date + "\n");
             count++;
             dirTree(file.toString());
             count--;
