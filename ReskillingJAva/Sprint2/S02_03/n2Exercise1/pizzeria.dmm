@@ -121,22 +121,6 @@
 					"any": ""
 				},
 				{
-					"id": "5c385179-e142-4e84-88cc-c2bfe05ede5b",
-					"name": "orderHasProducts",
-					"datatype": "355f2ae1-7ac7-4bd3-9267-6a70fcba8dd7",
-					"param": "",
-					"pk": false,
-					"nn": true,
-					"list": false,
-					"comment": "",
-					"data": "",
-					"enum": "",
-					"validation": "",
-					"pattern": false,
-					"estimatedSize": "",
-					"any": ""
-				},
-				{
 					"id": "f4f9e778-f324-48b7-aa1d-6268cb819d28",
 					"name": "totalPrice",
 					"datatype": "decimal",
@@ -912,83 +896,6 @@
 			"validation": "",
 			"capped": false
 		},
-		"355f2ae1-7ac7-4bd3-9267-6a70fcba8dd7": {
-			"id": "355f2ae1-7ac7-4bd3-9267-6a70fcba8dd7",
-			"visible": false,
-			"name": "object",
-			"desc": "",
-			"estimatedSize": "",
-			"cols": [
-				{
-					"id": "d9a81e14-b51e-4f59-bdd7-854b99edf17a",
-					"name": "productId",
-					"datatype": "int",
-					"param": "",
-					"pk": false,
-					"nn": true,
-					"list": false,
-					"comment": "",
-					"data": "",
-					"enum": "",
-					"validation": "",
-					"pattern": false,
-					"estimatedSize": "",
-					"any": ""
-				},
-				{
-					"id": "5ba9754c-62df-4764-89b9-fa7a632bc3f8",
-					"name": "quantity",
-					"datatype": "int",
-					"param": "",
-					"pk": false,
-					"nn": true,
-					"list": false,
-					"comment": "",
-					"data": "",
-					"enum": "",
-					"validation": "",
-					"pattern": false,
-					"estimatedSize": "",
-					"any": ""
-				}
-			],
-			"relations": [],
-			"lines": [],
-			"keys": [
-				{
-					"id": "082f134c-a7a9-4dd3-abf9-7b9d9dad439f",
-					"name": "Primary key",
-					"isPk": true,
-					"cols": []
-				},
-				{
-					"id": "6bf278fa-7a6b-4a71-b223-a360a08bb1de",
-					"isPk": false,
-					"name": "object_ai_1",
-					"cols": [
-						{
-							"id": "3d7be459-ee08-48d3-8d45-51b2965b17b8",
-							"colid": "d9a81e14-b51e-4f59-bdd7-854b99edf17a"
-						}
-					]
-				}
-			],
-			"indexes": [],
-			"embeddable": true,
-			"generate": true,
-			"generateCustomCode": true,
-			"customCode": "",
-			"beforeScript": "",
-			"afterScript": "",
-			"validationLevel": "na",
-			"validationAction": "na",
-			"collation": "",
-			"others": "",
-			"size": "",
-			"max": "",
-			"validation": "",
-			"capped": false
-		},
 		"55d85462-9c5b-4081-978c-fb7b806904d8": {
 			"id": "55d85462-9c5b-4081-978c-fb7b806904d8",
 			"visible": false,
@@ -998,7 +905,7 @@
 			"cols": [
 				{
 					"id": "152bbb19-2718-49b1-8b2e-ba85ea5dfaec",
-					"name": "number",
+					"name": "productId",
 					"datatype": "int",
 					"param": "",
 					"pk": false,
@@ -1065,6 +972,22 @@
 					"id": "465cf5d9-3b6d-4c4d-9660-b19714759870",
 					"name": "price",
 					"datatype": "decimal",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"data": "",
+					"enum": "",
+					"validation": "",
+					"pattern": false,
+					"estimatedSize": "",
+					"any": ""
+				},
+				{
+					"id": "d1d2167b-0dc8-4407-a395-d75ff77c2e35",
+					"name": "quantity",
+					"datatype": "int",
 					"param": "",
 					"pk": false,
 					"nn": true,
@@ -1655,7 +1578,7 @@
 		"replaceSpace": "_",
 		"color": "transparent",
 		"sideSelections": true,
-		"isDirty": false,
+		"isDirty": true,
 		"storedin": {
 			"major": 8,
 			"minor": 5,
@@ -1676,7 +1599,7 @@
 		"def_collation": "",
 		"def_others": "",
 		"connectionVersion": "",
-		"lastSaved": 1721215700119
+		"lastSaved": 1721291739564
 	},
 	"otherObjects": {},
 	"diagrams": {
@@ -1694,8 +1617,8 @@
 			"diagramItems": {
 				"52ed5c33-f68c-4284-9717-264b01df4d46": {
 					"referencedItemId": "52ed5c33-f68c-4284-9717-264b01df4d46",
-					"x": 45,
-					"y": 191,
+					"x": 46,
+					"y": 192,
 					"gHeight": 1180,
 					"gWidth": 317,
 					"color": "#ffffff",
@@ -1787,19 +1710,6 @@
 					"referencedItemId": "80a93f86-02c6-4aa8-b455-c832012acf2e",
 					"x": 119,
 					"y": 119,
-					"gHeight": -1,
-					"gWidth": -1,
-					"color": "#ffffff",
-					"background": "transparent",
-					"resized": false,
-					"autoExpand": true,
-					"backgroundOpacity": "10",
-					"collapsed": false
-				},
-				"355f2ae1-7ac7-4bd3-9267-6a70fcba8dd7": {
-					"referencedItemId": "355f2ae1-7ac7-4bd3-9267-6a70fcba8dd7",
-					"x": -1,
-					"y": -1,
 					"gHeight": -1,
 					"gWidth": -1,
 					"color": "#ffffff",
