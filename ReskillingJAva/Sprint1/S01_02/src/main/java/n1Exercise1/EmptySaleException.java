@@ -1,6 +1,6 @@
 package n1Exercise1;
 
-public class EmptySaleException extends RuntimeException {
+public class EmptySaleException extends Exception {
     private String message;
 
     public EmptySaleException() {

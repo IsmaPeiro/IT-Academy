@@ -1,44 +1,38 @@
 package n2Exercise2;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.LinkedHashSet;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Restaurant> restaurantsList = getRestaurants();
-        
-        restaurantsList.sort(Comparator.comparing(Restaurant::getName).
-                thenComparing((rest1,rest2)->rest2.getPunctuation()-rest1.getPunctuation()));
-        
-        LinkedHashSet<Restaurant> restaurantHash = new LinkedHashSet<>(restaurantsList);
-        
-        restaurantHash.forEach(System.out::println);
+       TreeSet<Restaurant> restaurantTreeSet = getRestaurants();
+       
+       restaurantTreeSet.forEach(System.out::println);
     }
     
-    private static ArrayList<Restaurant> getRestaurants() {
-        ArrayList<Restaurant> restaurantsList = new ArrayList<>();
+    private static TreeSet<Restaurant> getRestaurants() {
+        
+        TreeSet<Restaurant> restaurantTreeSet = new TreeSet<>();
         
         Restaurant r1 = new Restaurant("Lolo", 10);
         Restaurant r2 = new Restaurant("Paco", 7);
-        Restaurant r3 = new Restaurant("Casa Lucio", 8);
+        Restaurant r3 = new Restaurant("casa lucio", 8);
         Restaurant r4 = new Restaurant("Gorrino", 6);
         Restaurant r5 = new Restaurant("El Gallego", 10);
         Restaurant r6 = new Restaurant("Paco", 5);
         Restaurant r7 = new Restaurant("El Gallego", 10);
         Restaurant r8 = new Restaurant("Casa Lucio", 9);
-        Restaurant r9 = new Restaurant("Lolo", 10);
+        Restaurant r9 = new Restaurant("lolo", 10);
         
-        restaurantsList.add(r1);
-        restaurantsList.add(r2);
-        restaurantsList.add(r3);
-        restaurantsList.add(r4);
-        restaurantsList.add(r5);
-        restaurantsList.add(r6);
-        restaurantsList.add(r7);
-        restaurantsList.add(r8);
-        restaurantsList.add(r9);
+        restaurantTreeSet.add(r1);
+        restaurantTreeSet.add(r2);
+        restaurantTreeSet.add(r3);
+        restaurantTreeSet.add(r4);
+        restaurantTreeSet.add(r5);
+        restaurantTreeSet.add(r6);
+        restaurantTreeSet.add(r7);
+        restaurantTreeSet.add(r8);
+        restaurantTreeSet.add(r9);
         
-        return restaurantsList;
+        return restaurantTreeSet;
     }
 }

@@ -2,7 +2,7 @@ package n2Exercise2;
 
 import java.util.Objects;
 
-public class Restaurant {
+public class Restaurant implements Comparable<Restaurant> {
     private String name;
     private int punctuation;
     
@@ -38,5 +38,15 @@ public class Restaurant {
     @Override
     public int hashCode() {
         return Objects.hash(getName(), getPunctuation());
+    }
+    
+    
+    @Override
+    public int compareTo(Restaurant o) {
+        int compareByName = this.name.compareToIgnoreCase(o.name);
+        if (compareByName == 0) {
+            return Integer.compare(o.punctuation, this.punctuation);
+        }
+        return compareByName;
     }
 }
