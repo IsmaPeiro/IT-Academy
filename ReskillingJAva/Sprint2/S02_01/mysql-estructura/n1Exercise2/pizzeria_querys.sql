@@ -13,4 +13,4 @@ GROUP BY product.name;
 -- Llista quantes comandes ha efectuat un determinat empleat/da.
 SELECT COUNT(pizzeria.order.order_id) AS 'Total orders',CONCAT (employee.name, ' ', employee.first_last_name, ' ', second_last_name) AS 'Name of employee' FROM pizzeria.order
 JOIN employee ON pizzeria.order.employee_id=employee.employee_id
-WHERE employee.employee_id=5;
+WHERE employee.employee_id=1;

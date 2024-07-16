@@ -1,6 +1,6 @@
 USE TIENDA;
 -- 1
-SELECT * FROM producto;
+SELECT nombre FROM producto;
 -- 2
 SELECT nombre,precio FROM producto;
 -- 3
@@ -22,7 +22,7 @@ SELECT nombre, truncate(precio, 0) FROM producto;
 -- 11
 SELECT codigo_fabricante FROM producto;
 -- 12
-SELECT codigo_fabricante FROM producto GROUP BY codigo_fabricante;
+SELECT DISTINCT codigo_fabricante FROM producto;
 -- 13
 SELECT nombre FROM FABRICANTE ORDER BY nombre ASC;
 -- 14
@@ -40,19 +40,19 @@ SELECT nombre, precio FROM producto ORDER BY precio DESC LIMIT 1;
 -- 20
 SELECT * FROM producto WHERE codigo_fabricante=2;
 -- 21
-SELECT p.nombre AS 'producto', p.precio, f.nombre AS 'fabricante' FROM producto p, fabricante f;
+SELECT p.nombre AS 'producto', p.precio, f.nombre AS 'fabricante' FROM producto p join fabricante f on p.codigo_fabricante=f.codigo;
 -- 22
-SELECT p.nombre AS 'producto', p.precio, f.nombre AS 'fabricante' FROM producto p, fabricante f ORDER BY f.nombre ASC;
+SELECT p.nombre AS 'producto', p.precio, f.nombre AS 'fabricante' FROM producto p join fabricante f on p.codigo_fabricante=f.codigo ORDER BY f.nombre ASC;
 -- 23
-SELECT p.codigo AS 'código producto', p.nombre AS 'producto', p.precio, f.codigo AS 'código fabricante', f.nombre AS 'fabricante' FROM producto p, fabricante f;
+SELECT p.codigo AS 'código producto', p.nombre AS 'producto', p.precio, f.codigo AS 'código fabricante', f.nombre AS 'fabricante' FROM producto p join fabricante f on p.codigo_fabricante=f.codigo;
 -- 24
-SELECT p.precio, p.nombre AS 'producto', f.nombre AS 'fabricante' FROM producto p, fabricante f WHERE p.codigo_fabricante=f.codigo ORDER BY precio ASC LIMIT 1;
+SELECT p.precio, p.nombre AS 'producto', f.nombre AS 'fabricante' FROM producto p join fabricante f on p.codigo_fabricante=f.codigo WHERE p.precio=(SELECT MIN(precio) FROM producto);
 -- 25
-SELECT p.precio, p.nombre AS 'producto', f.nombre AS 'fabricante' FROM producto p, fabricante f WHERE p.codigo_fabricante=f.codigo ORDER BY precio DESC LIMIT 1;
+SELECT p.precio, p.nombre AS 'producto', f.nombre AS 'fabricante' FROM producto p join fabricante f on p.codigo_fabricante=f.codigo WHERE p.precio=(SELECT MAX(precio) FROM producto);
 -- 26
-SELECT p.* FROM producto p JOIN fabricante f ON p.codigo_fabricante=f.codigo AND f.nombre='Lenovo';
+SELECT p.* FROM producto p JOIN fabricante f ON p.codigo_fabricante=f.codigo WHERE f.nombre='Lenovo';
 -- 27
-SELECT p.* FROM producto p JOIN fabricante f ON p.codigo_fabricante=f.codigo AND f.nombre='Crucial' AND p.precio>200;
+SELECT p.* FROM producto p JOIN fabricante f ON p.codigo_fabricante=f.codigo WHERE f.nombre='Crucial' AND p.precio>200;
 -- 28
 SELECT p.*, f.nombre AS 'fabricante' FROM producto p JOIN fabricante f ON p.codigo_fabricante=f.codigo WHERE f.nombre='Asus' OR f.nombre='Hewlett-Packard' OR f.nombre='Seagate';
 -- 29
@@ -62,7 +62,7 @@ SELECT p.nombre, p.precio, f.nombre AS 'fabricante' FROM producto p JOIN fabrica
 -- 31
 SELECT p.nombre, p.precio, f.nombre AS 'fabricante' FROM producto p JOIN fabricante f ON p.codigo_fabricante=f.codigo WHERE f.nombre LIKE '%w%';
 -- 32
-SELECT p.nombre AS 'producto', p.precio, f.nombre AS 'fabricante' FROM producto p JOIN fabricante f ON p.codigo_fabricante=f.codigo WHERE p.precio>=180 ORDER BY p.precio ASC, p.nombre DESC;
+SELECT p.nombre AS 'producto', p.precio, f.nombre AS 'fabricante' FROM producto p JOIN fabricante f ON p.codigo_fabricante=f.codigo WHERE p.precio>=180 ORDER BY p.precio DESC, p.nombre ASC;
 -- 33
 SELECT f.codigo, f.nombre FROM fabricante f JOIN producto p ON f.codigo=p.codigo_fabricante GROUP BY f.codigo; 
 -- 34
@@ -78,7 +78,7 @@ SELECT p.nombre FROM producto p JOIN fabricante f ON p.precio=(SELECT MAX(p.prec
 -- 39
 SELECT p.nombre FROM producto p JOIN fabricante f ON p.precio=(SELECT MIN(p.precio) FROM producto p JOIN fabricante f  ON p.codigo_fabricante=f.codigo AND f.nombre='Hewlett-Packard') AND f.nombre='Hewlett-Packard';
 -- 40
-SELECT p.* FROM producto p JOIN fabricante f ON p.codigo_fabricante=f.codigo AND p.precio>=(SELECT MAX(p.precio) FROM producto p JOIN fabricante f ON p.codigo_fabricante=f.codigo AND f.nombre='Lenovo');
+SELECT p.* FROM producto p JOIN fabricante f ON p.codigo_fabricante=f.codigo WHERE p.precio>=(SELECT MAX(p.precio) FROM producto p JOIN fabricante f ON p.codigo_fabricante=f.codigo AND f.nombre='Lenovo');
 -- 41
-SELECT p.* FROM producto p JOIN fabricante f ON p.codigo_fabricante=f.codigo AND f.nombre='Asus' AND p.precio<(SELECT AVG(p.precio) FROM producto p) ;
+SELECT p.* FROM producto p JOIN fabricante f ON p.codigo_fabricante=f.codigo WHERE f.nombre='Asus' AND p.precio<(SELECT AVG(p.precio) FROM producto p) ;
 
