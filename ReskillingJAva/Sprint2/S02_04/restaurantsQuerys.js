@@ -24,15 +24,15 @@ db.restaurants.find({$and: [{cuisine: {$ne: "American "}}, {"grades.score": {$gt
 //12
 db.restaurants.find({cuisine: {$ne: "American "}, "grades.score": {$gt: 70}, "address.coord.0": {$lt: -65.754168}});
 //13
-db.restaurants.find({cuisine: {$ne: "American "}, "grades.grade": {$eq:"A"} , borough:{$ne:"Bronx"}}).sort({cuisine : -1});
+db.restaurants.find({cuisine: {$ne: "American "}, "grades.grade": {$eq:"A"} , borough:{$ne:"Brooklyn"}}).sort({cuisine : -1});
 //14
-db.restaurants.find({name:{$regex: /^Wil/}},{restaurant_id:1, name:1, borough:1, cuisine: 1})
+db.restaurants.find({name:{$regex: /^Wil/}},{_id:0,restaurant_id:1, name:1, borough:1, cuisine: 1})
 //15
-db.restaurants.find({name:{$regex: /ces$/}},{restaurant_id:1, name:1, borough:1, cuisine: 1})
+db.restaurants.find({name:{$regex: /ces$/}},{_id:0,restaurant_id:1, name:1, borough:1, cuisine: 1})
 //16
-db.restaurants.find({name:{$regex: /Reg/}},{restaurant_id:1, name:1, borough:1, cuisine: 1})
+db.restaurants.find({name:{$regex: /Reg/}},{_id:0,restaurant_id:1, name:1, borough:1, cuisine: 1})
 //17
-db.restaurants.find({cuisine: {$in: ["American ", "Chinese"]}, borough:{$ne:"Bronx"}});
+db.restaurants.find({cuisine: {$in: ["American ", "Chinese"]}, borough:"Bronx"});
 //18
 db.restaurants.find({borough:{$in:["Bronx","Staten Island", "Queens", "Brooklyn"]}},{restaurant_id:1, name:1, borough:1, cuisine: 1});
 //19
@@ -46,7 +46,7 @@ db.restaurants.find({"grades":{ $elemMatch:{"grade":"A","score":11,"date":ISODat
 //23
 db.restaurants.find({"grades.1.grade":"A", "grades.1.score":9, "grades.1.date":ISODate('2014-08-11T00:00:00.000Z')},{restaurant_id:1, name:1, grades:1});
 //24
-db.restaurants.find({"address.coord":{$elemMatch:{$gt:42,$lte:52}}},{restaurant_id: 1,name: 1,address:{coord: 1},_id: 0});
+db.restaurants.find({"address.coord.1":{$gt:42,$lte:52}},{restaurant_id: 1,name: 1,address:{coord: 1},_id: 0});
 //25
 db.restaurants.find({}).sort({name : 1});
 //26
@@ -56,10 +56,10 @@ db.restaurants.find({}).sort({cuisine : 1, borough:-1});
 //28
 db.restaurants.find({"address.street":{$exists: false}});
 //29
-db.restaurants.find({"address.coord":{$type:"double"}}):
+db.restaurants.find({"address.coord":{$type:"double"}});
 //30
 db.restaurants.find({"grades.score": {$mod:[7,0]}},{restaurant_id:1,name:1,grades:1,_id:0});
 //31
-db.restaurants.find({name:{$regex: /mon/}},{name:1, borough:1,  address:{coord:1},cuisine: 1});
+db.restaurants.find({name:{$regex: /mon/i}},{name:1, borough:1,  address:{coord:1},cuisine: 1});
 //32
 db.restaurants.find({name:{$regex: /^Mad/}},{name:1, borough:1,  address:{coord:1},cuisine: 1});
