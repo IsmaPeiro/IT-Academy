@@ -60,6 +60,6 @@ db.restaurants.find({"address.coord":{$type:"double"}});
 //30
 db.restaurants.find({"grades.score": {$mod:[7,0]}},{restaurant_id:1,name:1,grades:1,_id:0});
 //31
-db.restaurants.find({name:{$regex: /mon/i}},{name:1, borough:1,  address:{coord:1},cuisine: 1});
+db.restaurants.find({name:{$regex: /mon/i}},{name:1, borough:1, "address.coord":1,cuisine: 1});
 //32
-db.restaurants.find({name:{$regex: /^Mad/}},{name:1, borough:1,  address:{coord:1},cuisine: 1});
+db.restaurants.find({name:{$regex: /^Mad/}},{name:1, borough:1, "address.coord":1,cuisine: 1});
