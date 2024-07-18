@@ -1655,7 +1655,7 @@
 		"replaceSpace": "_",
 		"color": "transparent",
 		"sideSelections": true,
-		"isDirty": true,
+		"isDirty": false,
 		"storedin": {
 			"major": 8,
 			"minor": 5,
@@ -1676,7 +1676,7 @@
 		"def_collation": "",
 		"def_others": "",
 		"connectionVersion": "",
-		"lastSaved": 1721211666117
+		"lastSaved": 1721215700119
 	},
 	"otherObjects": {},
 	"diagrams": {
