@@ -10,6 +10,11 @@
     </parent>
 
     <artifactId>ReskillingJAva</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>Sprint3</module>
+        <module>Sprint3/S03_01</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>22</maven.compiler.source>
