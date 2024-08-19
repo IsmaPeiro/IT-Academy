@@ -11,7 +11,7 @@ target/
 *.iws
 *.iml
 *.ipr
-/Patterns
+/Patterns/
 
 ### Eclipse ###
 .apt_generated
