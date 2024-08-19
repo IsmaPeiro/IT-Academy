@@ -6,7 +6,6 @@ import abstractfactorymitocode.inter.IConexionREST;
 import abstractfactorymitocode.inter.impl.*;
 
 public class ConexionBDFabrica implements FabricaAbstracta {
-    //comentario de prueba
     @Override
     public IConexionBD getBD (String motor) {
         if (motor==null) {
