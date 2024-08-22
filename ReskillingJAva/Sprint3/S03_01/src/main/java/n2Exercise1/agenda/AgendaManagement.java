@@ -6,18 +6,21 @@ import n2Exercise1.factory.SpanishContactFactory;
 import n2Exercise1.factory.UKContactFactory;
 import n2Exercise1.phone.Phone;
 
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
 
 public class AgendaManagement {
     
     public void init() {
         
-        Agenda agenda=new Agenda();
+        Agenda agenda = new Agenda();
         
         boolean exit = false;
         
-        do{
-            switch(menu()){
+        do {
+            switch (menu()) {
                 case 1 -> addContact(agenda);
                 case 2 -> listContacts(agenda);
                 case 0 -> {
@@ -25,56 +28,56 @@ public class AgendaManagement {
                     exit = true;
                 }
             }
-        }while(!exit);
+        } while (!exit);
     }
     
-    public byte menu(){
+    public byte menu() {
         Scanner sc = new Scanner(System.in);
-        byte option=-1;
+        byte option = -1;
         final byte MINIMUM = 0;
         final byte MAXIMUM = 3;
         
-        do{
+        do {
             System.out.println("\nMENú PRINCIPAL");
             System.out.println("1. Add Contact.");
             System.out.println("2. List Contacts.");
             System.out.println("0. Exit.\n");
             if (sc.hasNextByte()) option = sc.nextByte();
             sc.nextLine();
-            if(option < MINIMUM || option > MAXIMUM){
+            if (option < MINIMUM || option > MAXIMUM) {
                 System.out.println("Chose a valid option.");
             }
-        }while(option < MINIMUM || option > MAXIMUM);
+        } while (option < MINIMUM || option > MAXIMUM);
         return option;
     }
     
-    public void addContact(Agenda agenda){
+    public void addContact(Agenda agenda) {
         String name, surname, street, number, floor, door, city, postalCode, phoneNumber;
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         
         System.out.println("What country is the contact from?");
-        ContactAbstractFactory factory=choseCountry();
+        ContactAbstractFactory factory = choseCountry();
         System.out.println("Name:");
-        name=sc.nextLine();
+        name = sc.nextLine();
         System.out.println("Surname:");
-        surname=sc.nextLine();
+        surname = sc.nextLine();
         System.out.println("City:");
-        city=sc.nextLine();
+        city = sc.nextLine();
         System.out.println("Postal Code:");
-        postalCode=sc.nextLine();
+        postalCode = sc.nextLine();
         System.out.println("Street:");
-        street=sc.nextLine();
+        street = sc.nextLine();
         System.out.println("Number:");
-        number=sc.nextLine();
+        number = sc.nextLine();
         System.out.println("Floor:");
-        floor=sc.nextLine();
+        floor = sc.nextLine();
         System.out.println("Door:");
-        door=sc.nextLine();
+        door = sc.nextLine();
         System.out.println("Phone:");
-        phoneNumber=sc.nextLine();
+        phoneNumber = sc.nextLine();
         
-        Address address=factory.createAddress(street, number, floor, door, city, postalCode);
-        Phone phone=factory.createPhone(phoneNumber);
+        Address address = factory.createAddress(street, number, floor, door, city, postalCode);
+        Phone phone = factory.createPhone(phoneNumber);
         
         agenda.addContact(factory.createContact(name, surname, address, phone));
         System.out.println("Contact added");
@@ -84,25 +87,33 @@ public class AgendaManagement {
         agenda.showAllcontacts();
     }
     
-    public ContactAbstractFactory choseCountry () {
+    public ContactAbstractFactory choseCountry() {
         Scanner sc = new Scanner(System.in);
-        byte option=-1;
-        final byte MINIMUM = 1;
-        final byte MAXIMUM = 2;
+        byte option = -1;
+        final int MINIMUM = 1;
+        final int MAXIMUM = Country.values().length;
         
-        do{
-            System.out.println("1. Spain");
-            System.out.println("2. UK");
+        do {
+            
+            AtomicInteger index = new AtomicInteger(1);
+            Arrays.stream(Country.values()).forEach(c -> System.out.println(index.getAndIncrement() + ". " + c));
             
             if (sc.hasNextByte()) option = sc.nextByte();
             sc.nextLine();
-            if(option < MINIMUM || option > MAXIMUM){
+            if (option < MINIMUM || option > MAXIMUM) {
                 System.out.println("Chose a valid option.");
             }
-        }while(option < MINIMUM || option > MAXIMUM);
-        switch (option) {
-            case 1 -> {return new SpanishContactFactory();}
-            case 2 -> {return new UKContactFactory();}
+        } while (option < MINIMUM || option > MAXIMUM);
+        
+        Country country = Country.values()[option - 1];
+        
+        switch (country) {
+            case SPAIN -> {
+                return new SpanishContactFactory();
+            }
+            case UK -> {
+                return new UKContactFactory();
+            }
         }
         return null;
     }
