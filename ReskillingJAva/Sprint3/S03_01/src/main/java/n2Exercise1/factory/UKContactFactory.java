@@ -7,7 +7,7 @@ import n2Exercise1.contact.UKContact;
 import n2Exercise1.phone.Phone;
 import n2Exercise1.phone.UKPhone;
 
-public class UKContactFactory extends ContactAbstractFactory {
+public class UKContactFactory implements ContactAbstractFactory {
     @Override
     public Contact createContact(String name, String surname, Address adress, Phone phone) {
         return new UKContact(name, surname, adress, phone);

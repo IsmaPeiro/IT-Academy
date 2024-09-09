@@ -12,9 +12,9 @@
         <module>ReskillingJAva</module>
         <module>ReskillingJAva/Sprint1</module>
         <module>FDLP</module>
-        <module>memento_pruebas</module>
-        <module>Pruebas</module>
         <module>Patterns</module>
+        <module>PersistenceMySQL</module>
+        <module>PersistenceMySQL</module>
     </modules>
 
     <properties>

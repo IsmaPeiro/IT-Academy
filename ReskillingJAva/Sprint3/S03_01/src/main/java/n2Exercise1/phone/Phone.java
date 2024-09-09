@@ -1,12 +1,14 @@
 package n2Exercise1.phone;
 
-public class Phone {
+public abstract class Phone {
     protected String prefix;
     protected String number;
     
     public Phone(String number) {
         this.number = number;
     }
+    
+    public abstract String returnType ();
     
     public String getPrefix() {
         return prefix;
@@ -22,7 +24,7 @@ public class Phone {
     
     @Override
     public String toString() {
-        return "Phone: " +"\n"+
+        return returnType() + ": " +"\n"+
                 prefix + " " + number;
     }
 }

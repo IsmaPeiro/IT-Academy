@@ -5,4 +5,9 @@ public class UKPhone extends Phone {
         super(number);
         this.prefix="+44";
     }
+    
+    @Override
+    public String returnType() {
+        return "UK Phone";
+    }
 }

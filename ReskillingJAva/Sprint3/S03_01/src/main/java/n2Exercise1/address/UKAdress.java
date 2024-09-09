@@ -5,4 +5,9 @@ public class UKAdress extends Address {
         super(street, number, flat, door, city, postalCode);
         this.country="UK";
     }
+    
+    @Override
+    public String returnType() {
+        return "UK Address";
+    }
 }

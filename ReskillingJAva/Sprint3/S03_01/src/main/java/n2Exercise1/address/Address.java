@@ -1,6 +1,6 @@
 package n2Exercise1.address;
 
-public class Address {
+public abstract class Address {
     protected String street;
     protected String number;
     protected String floor;
@@ -17,6 +17,8 @@ public class Address {
         this.postalCode = postalCode;
         this.city = city;
     }
+    
+    public abstract String returnType();
     
     public String getStreet() {
         return street;
@@ -72,7 +74,7 @@ public class Address {
     
     @Override
     public String toString() {
-        return "Address: \n" +
+        return returnType() + ": \n" +
                 street + ", " + number + ", " + floor + " " + door + ", " + postalCode + " " + city + ", " + country;
     }
 }

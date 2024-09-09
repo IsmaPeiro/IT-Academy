@@ -15,7 +15,7 @@ public class Main {
         System.out.println("calculateTotal result with a list with products:");
         try {
             System.out.println(s1.calculateTotal());
-        } catch (RuntimeException e) {
+        } catch (EmptySaleException e) {
             System.err.println(e.getMessage());
         }
 
@@ -23,7 +23,7 @@ public class Main {
         System.out.println("calculateTotal result with a list without products:");
         try {
             System.out.println(s2.calculateTotal());
-        } catch (RuntimeException e) {
+        } catch (EmptySaleException e) {
             System.err.println(e.getMessage());
         }
 

@@ -5,4 +5,9 @@ public class SpanishAddress extends Address {
         super(street, number, flat, door, city, postalCode);
         this.country="Spain";
     }
+    
+    @Override
+    public String returnType() {
+        return "Spanish Address";
+    }
 }

@@ -3,8 +3,7 @@ package n2Exercise1.contact;
 import n2Exercise1.address.Address;
 import n2Exercise1.phone.Phone;
 
-public class Contact {
-    protected String contactType;
+public abstract class Contact {
     protected String name;
     protected String surname;
     protected Address address;
@@ -17,9 +16,7 @@ public class Contact {
         this.phone = phone;
     }
     
-    public String getContactType() {
-        return contactType;
-    }
+    public abstract String returnType();
     
     public Address getAddress() {
         return address;
@@ -47,6 +44,6 @@ public class Contact {
     
     @Override
     public String toString() {
-        return contactType +"\n"+ address +"\n"+ phone;
+        return returnType() + ":\n" + name + " " + surname +"\n"+ address +"\n"+ phone +"\n";
     }
 }
