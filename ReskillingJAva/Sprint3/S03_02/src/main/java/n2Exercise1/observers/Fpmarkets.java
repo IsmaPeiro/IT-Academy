@@ -1,8 +1,8 @@
-package n2Exercise3.observers;
+package n2Exercise1.observers;
 
-public class ActiveTrades extends StockAgency implements Observer {
-    public ActiveTrades() {
-        this.name="Activetrades";
+public class Fpmarkets extends StockAgency implements Observer {
+    public Fpmarkets() {
+        this.name = "Fpmarkets";
     }
     
     @Override

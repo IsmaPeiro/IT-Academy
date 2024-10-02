@@ -1,4 +1,4 @@
-package n1Exercise1v2;
+package n1Exercise1;
 
 public enum PizzaType {
     VEGETARIAN, HAWAIIAN

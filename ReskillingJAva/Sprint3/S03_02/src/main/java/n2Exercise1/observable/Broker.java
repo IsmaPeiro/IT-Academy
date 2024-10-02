@@ -1,6 +1,6 @@
-package n2Exercise3.observable;
+package n2Exercise1.observable;
 
-import n2Exercise3.observers.Observer;
+import n2Exercise1.observers.Observer;
 
 import java.util.ArrayList;
 import java.util.List;

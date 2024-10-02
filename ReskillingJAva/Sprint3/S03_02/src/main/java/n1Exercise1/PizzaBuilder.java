@@ -1,9 +1,9 @@
 package n1Exercise1;
 
-import java.util.List;
-
 public interface PizzaBuilder {
-    void setSize (String size);
-    void setDough (String dough);
-    void setToppings (List<String> toppings);
+    PizzaBuilder setSize (String size);
+    PizzaBuilder setDough (String dough);
+    PizzaBuilder setToppings (String... toppings);
+    PizzaBuilder setExtraToppings (String... extraToppings);
+    Pizza build();
 }

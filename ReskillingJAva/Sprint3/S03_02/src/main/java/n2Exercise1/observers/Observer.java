@@ -1,4 +1,4 @@
-package n2Exercise3.observers;
+package n2Exercise1.observers;
 
 public interface Observer {
     void update(String message);

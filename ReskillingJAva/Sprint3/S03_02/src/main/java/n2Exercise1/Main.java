@@ -1,8 +1,8 @@
-package n2Exercise3;
+package n2Exercise1;
 
-import n2Exercise3.observable.Broker;
-import n2Exercise3.observers.ActiveTrades;
-import n2Exercise3.observers.Fpmarkets;
+import n2Exercise1.observers.ActiveTrades;
+import n2Exercise1.observers.Fpmarkets;
+import n2Exercise1.observable.Broker;
 
 public class Main {
     public static void main(String[] args) {

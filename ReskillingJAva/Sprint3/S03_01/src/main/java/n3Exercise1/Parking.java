@@ -7,7 +7,7 @@ import n3Exercise1.commands.StartCommand;
 import n3Exercise1.vehicles.Bicycle;
 import n3Exercise1.vehicles.Boat;
 import n3Exercise1.vehicles.Car;
-import n3Exercise1.vehicles.Plain;
+import n3Exercise1.vehicles.Plane;
 
 public class Parking {
     public static void test () {
@@ -15,7 +15,7 @@ public class Parking {
         Car car=new Car();
         Boat boat=new Boat();
         Bicycle bike=new Bicycle();
-        Plain plain=new Plain();
+        Plane plane =new Plane();
         
         invoker.inputCommands(new StartCommand(car));
         invoker.inputCommands(new AccelerateCommand(car));
@@ -26,9 +26,9 @@ public class Parking {
         invoker.inputCommands(new StartCommand(bike));
         invoker.inputCommands(new AccelerateCommand(bike));
         invoker.inputCommands(new BrakeCommand(bike));
-        invoker.inputCommands(new StartCommand(plain));
-        invoker.inputCommands(new AccelerateCommand(plain));
-        invoker.inputCommands(new BrakeCommand(plain));
+        invoker.inputCommands(new StartCommand(plane));
+        invoker.inputCommands(new AccelerateCommand(plane));
+        invoker.inputCommands(new BrakeCommand(plane));
         
         invoker.executeCommands();
     }

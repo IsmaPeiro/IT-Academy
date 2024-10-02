@@ -1,4 +1,4 @@
-package n2Exercise3.observers;
+package n2Exercise1.observers;
 
 public abstract class StockAgency {
     protected String name;

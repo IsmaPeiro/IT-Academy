@@ -1,4 +1,4 @@
-package n2Exercise3.observable;
+package n2Exercise1.observable;
 
 public class StockMarket {
     private String name;
