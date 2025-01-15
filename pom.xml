@@ -15,6 +15,7 @@
         <module>Patterns</module>
         <module>PersistenceMySQL</module>
         <module>PersistenceMySQL</module>
+        <module>AulaEnLaNubeJava</module>
     </modules>
 
     <properties>
